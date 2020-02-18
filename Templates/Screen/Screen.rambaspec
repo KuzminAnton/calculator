@@ -1,0 +1,18 @@
+# Template information section
+name: Screen
+summary: 
+author: Sorochinskiy Dmitriy
+version: 1.0.0
+license: mit
+
+# The declarations for code files
+code_files:
+- {name: Assembly.swift, path: Code/Assembly/Assembly.swift.liquid}
+- {name: Presenter.swift, path: Code/Presenter/Presenter.swift.liquid}
+- {name: PresenterProtocol.swift, path: Code/Presenter/PresenterProtocol.swift.liquid}
+- {name: VC.swift, path: Code/VC/vc.swift.liquid}
+- {name: VCProtocol.swift, path: Code/VC/vcProtocol.swift.liquid}
+- {name: .storyboard, path: Code/Storyboard/Storyboard.storyboard.liquid}
+
+
+# The declarations for test files

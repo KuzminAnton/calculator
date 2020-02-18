@@ -1,0 +1,73 @@
+name: Calculator
+settings:
+  DEVELOPMENT_TEAM: 6YT52CJLC6
+targets:
+  Calculator-Dev:
+    platform: iOS
+    deploymentTarget: "10.0"
+    type: application
+    sources:
+      - path: Sources
+      - path: Resources
+        buildPhase: resources
+        excludes: 
+          - "InfoStaging.plist"
+          - "InfoProd.plist"
+      - path: Scripts
+        buildPhase: none
+    settings: 
+      base:
+        INFOPLIST_FILE: Resources/InfoDev.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.jetruby.Calculator
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: $(inherited)
+        ACTIVE_COMPILATION_CONDITIONS: DEV
+    prebuildScripts:
+      - name: IconOverlay
+        script: sh Scripts/BeforeCompileResources.sh
+    postbuildScripts:
+      - script: ${PODS_ROOT}/SwiftLint/swiftlint
+        name: Swiftlint
+      - script: sh Scripts/AfterCompileResources.sh
+        name: IconOverlayPost                
+  Calculator-Staging:
+    sources:
+      - path: Sources
+      - path: Resources
+        buildPhase: resources    
+        excludes: 
+          - "InfoDev.plist"
+          - "InfoProd.plist"  
+    platform: iOS
+    deploymentTarget: "10.0"
+    type: application
+    settings:
+      base:
+        INFOPLIST_FILE: Resources/InfoStaging.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.jetruby.Calculator
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: $(inherited)        
+        ACTIVE_COMPILATION_CONDITIONS: STAGING
+    prebuildScripts:
+      - name: IconOverlay
+        script: sh Scripts/BeforeCompileResources.sh        
+    postbuildScripts:
+      - script: ${PODS_ROOT}/SwiftLint/swiftlint
+        name: Swiftlint
+      - script: sh Scripts/AfterCompileResources.sh
+        name: IconOverlayPost        
+  Calculator-Prod:
+    platform: iOS
+    deploymentTarget: "10.0"
+    type: application    
+    sources:
+      - path: Sources
+      - path: Resources
+        buildPhase: resources  
+        excludes: 
+          - "InfoStaging.plist"
+          - "InfoDev.plist"    
+    settings:
+      base:
+        INFOPLIST_FILE: Resources/InfoProd.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.jetruby.Calculator    
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: $(inherited)
+ 

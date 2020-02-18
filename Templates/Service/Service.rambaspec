@@ -1,0 +1,17 @@
+# Template information section
+name: Service
+summary: 
+author: Sorochinskiy Dmitriy
+version: 1.0.0
+license: 
+
+# The declarations for code files
+code_files:
+- {name: Service.swift, path: Code/Services/Service.swift.liquid}
+- {name: ServiceProtocol.swift, path: Code/Services/ServiceProtocol.swift.liquid}
+- {name: ServiceAssembly.swift, path: Code/Assembly/Assembly.swift.liquid}
+
+# The declarations for test files
+
+# Template dependencies
+dependencies:

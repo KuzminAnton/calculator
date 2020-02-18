@@ -1,0 +1,30 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Swinject
+
+class {{ module_info.name }}Assembly: Assembly {
+    func assemble(container: Container) {
+        container.register({{ module_info.name }}VCProtocol.self) { _ in
+            let storyboard = UIStoryboard(name: "{{ module_info.name }}", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "{{ module_info.name }}VC") as! {{ module_info.name }}VCProtocol
+            
+            let presenter: {{ module_info.name }}PresenterProtocol = resolve()
+            
+            viewController.presenter = presenter
+            presenter.viewController = viewController
+            
+            return viewController
+        }
+        
+        container.register({{ module_info.name }}PresenterProtocol.self) { _ in
+            let presenter = {{ module_info.name }}Presenter()
+            return presenter
+        }
+    }
+}

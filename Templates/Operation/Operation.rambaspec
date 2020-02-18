@@ -1,0 +1,12 @@
+# Template information section
+name: Operation
+summary: 
+author: Sorochinskiy Dmitriy
+version: 1.0.0
+license: 
+
+# The declarations for code files
+code_files:
+- {name: Operation.swift, path: Code/Operation/Operation.swift.liquid}
+- {name: OperationProtocol.swift, path: Code/Operation/OperationProtocol.swift.liquid}
+- {name: OperationAssembly.swift, path: Code/Assembly/Assembly.swift.liquid}

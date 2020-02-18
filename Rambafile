@@ -1,0 +1,19 @@
+### Headers settings
+company: JetRuby
+
+### Xcode project settings
+project_name: Calculator
+xcodeproj_path: Calculator.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_targets: [Calculator-Prod, Calculator-Dev, Calculator-Staging]
+project_file_path: /Sources/
+
+### Templates
+catalogs: 
+
+templates:
+- {name: screen, local: '..'}
+- {name: operation, local: '..'}
+- {name: service, local: '..'}

@@ -1,0 +1,35 @@
+disabled_rules:
+  - trailing_newline
+  - trailing_whitespace
+  - vertical_whitespace
+  - valid_docs
+  - function_body_length
+  - force_try
+  - force_cast
+
+
+cyclomatic_complexity: 12
+file_length: 550
+function_body_length: 2
+function_parameter_count: 8
+line_length: 200
+type_body_length: 300
+variable_name:
+  min_length:
+    error: 1
+    warning: 1
+  excluded:
+    - N
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Resources/
+
+custom_rules:
+  smiley_face:
+    name: "Smiley Face"
+    regex: '( :\))'
+    match_kinds:
+      - comment
+      - string
+    message: "A closing parenthesis smiley :) creates a half-hearted smile, and thus is not preferred. Use :]"
+    severity: warning
